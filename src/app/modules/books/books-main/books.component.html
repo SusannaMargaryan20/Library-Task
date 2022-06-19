@@ -1,0 +1,45 @@
+<div class="G-flex G-align-center G-justify-end G-mt-2 G-mb-2">
+  <button class="G-btn P-add-btn" (click)="showManageBookModal()">Add new</button>
+</div>
+
+<div class="P-book-view G-flex G-flex-column">
+  <div class="P-book-list G-flex G-flex-wrap">
+    <div class="P-items G-flex G-flex-column G-justify-between" *ngFor="let item of shownData">
+      <div class="P-book-image">
+        <a [routerLink]="[item.id] + '/edit-book'">
+          <img src='{{item.imageLink? item.imageLink : "/assets/images/no-image.png"}}' class="P-image-book"/>
+        </a>
+      </div>
+
+      <div class="P-book-info">
+        <p class="P-info-item"><b style="font-size: 18px;">Title - </b>{{item.name}}</p>
+        <p class="P-info-item"><b style="font-size: 18px;">Author - </b>{{item.author}}</p>
+        <p class="P-info-item"><b style="font-size: 18px;">Genre - </b>{{item.genre}}</p>
+        <a class="P-info-item" href="{{item.link}}" target="_blank" ><b style="font-size: 18px;">Link
+          - </b>See more</a>
+
+        <div class="G-mt-2 G-flex G-align-center G-justify-end P-show-more">
+          <mat-icon (click)="showMoreFunctionality(item)">more_horiz</mat-icon>
+          <div class="P-content-more" [class.show]="isShowMore && showMoreId === item.id">
+            <p class="G-cursor" (click)="openEditModal(item)">Edit</p>
+            <p class="G-cursor" (click)="openDeleteBookModal(item.id)">Delete</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="G-flex G-align-center G-justify-end G-mt-2">
+  <mat-paginator
+    (page)="filterPages($event)"
+    [length]="bookInitialData?.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<app-delete-modal *ngIf="isDeleteBook" [bookId]="deleteId" (close)="closeDeleteBook()" (update)="updateList()"></app-delete-modal>
+<app-manage-book-modal *ngIf="isManageBook" [data]="editResModel" (update)="getBooksList()" (close)="closeManageBookModal()"></app-manage-book-modal>

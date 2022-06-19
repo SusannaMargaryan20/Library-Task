@@ -1,0 +1,54 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal">
+    <h1 class="G-modal-title">{{genreId ? 'Edit ' : 'Create '}}genre</h1>
+    <form class="P-form" [formGroup]="manageGenreModel"
+          (ngSubmit)="handleSave()">
+
+      <div class="G-flex G-flex-column P-main-block">
+
+        <div class="P-input-group">
+          <label>Genre Name</label>
+          <input type="text"
+                 formControlName="name"
+                 placeholder="Enter genre name">
+        </div>
+
+        <div class="P-input-group">
+          <label>Author List</label>
+          <mat-form-field appearance="outline">
+            <mat-select
+              formControlName="author"
+              [disabled]="!authorList.length"
+              placeholder="Select author"
+              (selectionChange)="checkSelectAuthor($event)">
+              <mat-option *ngFor="let type of authorList" [value]="type.firstName + ' ' + type.lastName">
+                {{type.firstName + ' ' + type.lastName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="P-input-group">
+          <label>Book Name</label>
+          <input type="text"
+                 formControlName="bookName"
+                 placeholder="Enter book name">
+        </div>
+
+        <div class="P-input-group">
+          <label>Short description about book</label>
+          <textarea formControlName="short_description"
+                    placeholder="Please enter something about that genre of book"></textarea>
+        </div>
+
+      </div>
+
+      <div class="P-actions-book">
+        <button class="G-btn P-cancel" (click)="close.emit()">Cancel</button>
+        <button class="G-btn P-save" type="submit">Save</button>
+      </div>
+
+    </form>
+
+  </div>
+</app-modal>

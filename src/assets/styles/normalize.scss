@@ -1,0 +1,150 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '../../../node_modules/@angular/material/index' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$library-primary: mat.define-palette(mat.$indigo-palette);
+$library-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$library-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$library-theme: mat.define-light-theme((
+  color: (
+    primary: $library-primary,
+    accent: $library-accent,
+    warn: $library-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($library-theme);
+@import "variables";
+* {
+  margin      : 0;
+  padding     : 0;
+  color       : $black;
+  box-sizing  : border-box;
+  outline     : 0;
+  font-family : 'OpenSans', 'Golos', 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size        : 16px;
+  color            : $black;
+  min-height       : 100vh;
+  background-color : $body-color;
+
+  a {
+    color           : $black;
+    text-decoration : none;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+textarea, input, button, pre {
+  font-size   : 16px !important;
+  outline     : none !important;
+}
+
+input {
+  height           : $input-height;
+  border           : 1px solid $lighter-gray;
+  text-indent      : 10px;
+  border-radius    : $input-border-radius;
+  background-color : transparent;
+  color            : $black;
+}
+
+textarea {
+  width         : 100%;
+  height        : calc(#{$input-height} + 10px);
+  border        : 1px solid $lighter-gray;
+  max-height    : 400px;
+  min-height    : calc(#{$input-height} + 40px);
+  border-radius : $input-border-radius;
+  padding       : 10px;
+  text-indent   : 0;
+  resize        : vertical;
+}
+
+pre {
+  white-space : pre-wrap;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  margin     : 0;
+  appearance : none;
+}
+
+input[type=file] {
+  display : none;
+}
+
+i[class*=icon] {
+  cursor : pointer;
+}
+
+.icon-delete {
+  color : $red;
+}
+
+a, button, label { cursor : pointer; }
+
+button {
+  border           : 0;
+  background-color : transparent;
+}
+
+h1 { font-size : 40px; }
+h2 { font-size : 32px; line-height: 32px; }
+h3 { font-size : 28px; }
+h4 { font-size : 22px; }
+h5 { font-size : 18px; }
+h6 { font-size : 16px; }
+a, p { font-size : 16px; }
+
+
+*::-webkit-scrollbar-track, *::-ms-autohiding-scrollbar {
+  border-radius    :  2px;
+  background-color :  $light;
+}
+
+*::-webkit-scrollbar {
+  width            : 4px;
+  height           : 8px;
+  background-color : $light;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius      : 4px;
+  background-color   : grey;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

@@ -1,0 +1,181 @@
+{
+  "books": [
+    {
+      "author": "Jack London",
+      "authorId": 1,
+      "genreId": 1,
+      "name": "The Call of the Wild",
+      "genre": "Action and Adventure",
+      "imageLink": "assets/images/call_of_wild.jpg",
+      "link": "https://en.wikipedia.org/wiki/The_Call_of_the_Wild",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "author": "Louisa May Alcott",
+      "name": "Little Women",
+      "authorId": 2,
+      "genreId": 2,
+      "genre": "Classics",
+      "imageLink": "assets/images/little_women.jpg",
+      "link": "https://en.wikipedia.org/wiki/Little_Women"
+    },
+    {
+      "id": 3,
+      "author": "Louisa May Alcott",
+      "name": "The Adventures of Sherlock Holmes",
+      "authorId": 3,
+      "genreId": 3,
+      "genre": "Detective and Mystery",
+      "imageLink": "assets/images/sherelock_homes.jpg",
+      "link": "https://en.wikipedia.org/wiki/The_Adventures_of_Sherlock_Holmes"
+    },
+    {
+      "id": 4,
+      "author": "Ta-Nehisi Coates",
+      "name": "One World The Water Dancer",
+      "authorId": 4,
+      "genreId": 4,
+      "genre": "Fantasy",
+      "imageLink": "assets/images/The_Water_Dancer.png",
+      "link": "https://en.wikipedia.org/wiki/The_Water_Dancer"
+    },
+    {
+      "author": "Louisa  May Alcott",
+      "authorId": 2,
+      "genreId": 4,
+      "name": "One Hundred Years of Solitude",
+      "genre": "Fantasy",
+      "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude",
+      "id": 5
+    },
+    {
+      "author": "Charlotte Brontë",
+      "authorId": 6,
+      "genreId": 6,
+      "name": "Jane Eyre",
+      "genre": "Romance",
+      "imageLink": "",
+      "link": "https://en.wikipedia.org/wiki/Jane_Eyre",
+      "id": 6
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "authorId": 1,
+      "name": "Action and Adventure",
+      "bookName": "The Call of the Wild",
+      "short_description": "The Call of the Wild is a short adventure novel by Jack London, published in 1903 and set in Yukon, Canada, during the 1890s Klondike Gold Rush, when strong sled dogs were in high demand. The central character of the novel is a dog named Buck. The story opens at a ranch in Santa Clara Valley, California, when Buck is stolen from his home and sold into service as a sled dog in Alaska. He becomes progressively more primitive and wild in the harsh environment, where he is forced to fight to survive and dominate other dogs. By the end, he sheds the veneer of civilization, and relies on primordial instinct and learned experience to emerge as a leader in the wild."
+    },
+    {
+      "id": 2,
+      "authorId": 2,
+      "name": "Classics",
+      "bookName": "The Call of the Wild",
+      "short_description": "The classics have been around for decades, and were often groundbreaking stories at their publish time, but have continued to be impactful for generations, serving as the foundation for many popular works we read today."
+    },
+    {
+      "id": 3,
+      "authorId": 3,
+      "name": "Detective and Mystery",
+      "bookName": "The Adventures of Sherlock Holmes",
+      "short_description": "In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices. Holmes is portrayed as offering a new, fairer sense of justice. The stories were well received, and boosted the subscriptions figures of The Strand Magazine, prompting Doyle to be able to demand more money for his next set of stories. The first story, \"A Scandal in Bohemia\", includes the character of Irene Adler, who, despite being featured only within this one story by Doyle, is a prominent character in modern Sherlock Holmes adaptations, generally as a love interest for Holmes."
+    },
+    {
+      "id": 4,
+      "authorId": 4,
+      "name": "Fantasy",
+      "bookName": "One World The Water Dancer",
+      "short_description": "The Water Dancer is the debut novel by Ta-Nehisi Coates, published on September 24, 2019, by Random House under its One World imprint. It is a surrealist story set in the pre–Civil War South, concerning a superhuman protagonist named Hiram Walker who possesses photographic memory, but who cannot remember his mother, and, late in the novel, is able to transport people over long distances by using a power known as \"conduction\". This power is based in the power of memory and storytelling and can fold the Earth like fabric and allows him to travel across large areas via waterways."
+    },
+    {
+      "id": 5,
+      "authorId": 5,
+      "name": "Historical Fiction",
+      "bookName": "One Hundred Years of Solitude",
+      "short_description": "The magical realist style and thematic substance of One Hundred Years of Solitude established it as an important representative novel of the literary Latin American Boom of the 1960s and 1970s,[5] which was stylistically influenced by Modernism (European and North American) and the Cuban Vanguardia (Avant-Garde) literary movement."
+    },
+    {
+      "author": "Charlotte Brontë",
+      "authorId": 6,
+      "name": "Romance",
+      "short_description": "Brontë's first manuscript, 'The Professor', did not secure a publisher, although she was heartened by an encouraging response from Smith, Elder & Co. of Cornhill, who expressed an interest in any longer works Currer Bell might wish to send.Brontë responded by finishing and sending a second manuscript in August 1847. Six weeks later, Jane Eyre was published. It tells the story of a plain governess, Jane, who, after difficulties in her early life, falls in love with her employer, Mr Rochester. They marry, but only after Rochester's insane first wife, of whom Jane initially has no knowledge, dies in a dramatic house fire. The book's style was innovative, combining Romanticism, naturalism with gothic melodrama, and broke new ground in being written from an intensely evoked first-person female perspective.Brontë believed art was most convincing when based on personal experience; in Jane Eyre she transformed the experience into a novel with universal appeal.",
+      "bookName": "Jane Eyre",
+      "id": 6
+    }
+  ],
+  "author": [
+    {
+      "id": 1,
+      "firstName": "Jack",
+      "lastName": "London",
+      "image": "assets/images/jack_london.jpg",
+      "bornDate": "01.12.1876",
+      "dieDate": "11.22.1916",
+      "genreId": 1,
+      "bookId": 1,
+      "bookName": "The Call of the Wild",
+      "genre": "Action and Adventure"
+    },
+    {
+      "id": 2,
+      "firstName": "Louisa",
+      "lastName": " May Alcott",
+      "image": "assets/images/luiza_alcott.jpg",
+      "bornDate": "11.29.1832",
+      "dieDate": "03.06.1888",
+      "genreId": 2,
+      "bookId": 2,
+      "bookName": "Little Women",
+      "genre": "Classics"
+    },
+    {
+      "id": 3,
+      "firstName": "Arthur",
+      "lastName": "Conan Doyle",
+      "image": "assets/images/Conan_doyle.jpg",
+      "bornDate": "05.22.1859",
+      "dieDate": "07.07.1930",
+      "genreId": 3,
+      "bookId": 3,
+      "bookName": "The Adventures of Sherlock Holmes",
+      "genre": "Detective and Mystery"
+    },
+    {
+      "id": 4,
+      "firstName": "Ta-Nehisi",
+      "lastName": "Coates",
+      "image": "assets/images/Ta-Nehisi_Coates.jpg",
+      "bornDate": "09.30.1975",
+      "dieDate": null,
+      "genreId": 4,
+      "bookId": 4,
+      "bookName": "One World The Water Dancer",
+      "genre": "Fantasy"
+    },
+    {
+      "id": 5,
+      "firstName": "Gabriel",
+      "lastName": "García Márquez",
+      "image": "assets/images/Gabriel_Garcia_Marquez.jpg",
+      "bornDate": "03.06.1927",
+      "dieDate": "04.17.2014",
+      "genreId": 5,
+      "bookId": 5,
+      "bookName": "One Hundred Years of Solitude",
+      "genre": "Historical Fiction"
+    },
+    {
+      "firstName": "Charlotte",
+      "lastName": "Brontë",
+      "bornDate": "1816-04-20T21:02:00.000Z",
+      "dieDate": "1855-03-30T21:02:00.000Z",
+      "genreId": 6,
+      "genre": "Romance",
+      "image": "",
+      "bookName": "Jane EYre",
+      "id": 6
+    }
+  ]
+}

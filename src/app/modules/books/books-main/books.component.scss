@@ -1,0 +1,106 @@
+@import "../../../../assets/styles/variables";
+
+.P-add-btn {
+  color: white;
+  background: linear-gradient(green, yellow);
+}
+
+.P-book-view {
+  width: 100%;
+  gap: 30px;
+
+  .P-book-list {
+    grid-gap: 30px;
+    gap: 30px;
+    width: 100%;
+
+    .P-items {
+      min-width: 250px;
+      background-color: #FFFFFF;
+      box-shadow: 0 10px 30px rgba(82, 63, 105, 0.08);
+      border-radius: 10px;
+      width: calc(100% / 4 - 30px);
+      max-height: 700px;
+
+      .P-image-book {
+        border-radius: 10px;
+        height: 300px;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .P-book-info {
+        line-height: 40px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 220px;
+        background-color: whitesmoke;
+        padding-bottom: 10px;
+        border-radius: 7px;
+
+        .P-show-more {
+          position: relative;
+          .P-content-more {
+            width: 130px;
+            height: 80px;
+            padding: 0 10px;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            display: none;
+            box-shadow: $shadow;
+            p{
+              margin: 0;
+            }
+            &.show {
+              display: block;
+            }
+          }
+        }
+        .P-info-item {
+          font-size: 16px;
+          opacity: 0.8;
+          margin: 0;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+
+.mat-paginator {
+  background-color: $body-color;
+}
+
+
+@media (max-width: 1290px) {
+  .P-book-list {
+    .P-items {
+      width: calc(100% / 3 - 20px) !important;
+    }
+  }
+}
+
+@media (max-width: 955px) {
+  .P-book-list {
+    .P-items {
+      min-width: 200px !important;
+      width: calc(100% / 2 - 20px) !important;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .P-book-list {
+    .P-items {
+      width: 100% !important;
+    }
+  }
+}

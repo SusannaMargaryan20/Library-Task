@@ -1,0 +1,11 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal P-confirm-modal">
+
+    <h6 class="G-text-center">Genre Delete</h6>
+    <p class="G-text-center G-mt-1">Are you sure you want to delete this genre?</p>
+    <div class="P-actions">
+      <button class="G-btn P-cancel" (click)="close.emit()">Cancel</button>
+      <button class="G-btn P-save" (click)="save()">Delete</button>
+    </div>
+  </div>
+</app-modal>

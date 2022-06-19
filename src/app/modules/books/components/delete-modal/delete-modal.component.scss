@@ -1,0 +1,26 @@
+@import "../../../../../assets/styles/variables";
+.P-confirm-modal {
+  width: 400px;
+  h6 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+.P-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .P-cancel {
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+  }
+
+  .P-save {
+    color: white;
+    background: linear-gradient(green, yellow);
+  }
+}
+

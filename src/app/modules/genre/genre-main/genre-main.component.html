@@ -1,0 +1,43 @@
+<div class="G-flex G-align-center G-justify-end G-mt-2 G-mb-2">
+  <button class="G-btn P-add-btn" (click)="openAddNewGenre()">Add new</button>
+</div>
+
+<div class="P-genre-page G-flex-column G-flex">
+  <div class="P-genre-list G-flex G-flex-wrap">
+    <div class="P-items-genre G-flex G-flex-wrap G-flex-column G-justify-between" *ngFor="let item of shownData">
+      <div class="G-flex G-align-center G-justify-end G-mb-1 P-show-more">
+        <mat-icon (click)="showMoreFunctionality(item)">more_horiz</mat-icon>
+        <div class="P-content-more" [class.show]="isShowMore && showMoreId === item.id">
+          <p class="G-cursor G-ml-1" (click)="openEditModal(item)">Edit</p>
+          <p class="G-cursor G-ml-1" (click)="openDeleteGenreModal(item.id)">Delete</p>
+        </div>
+      </div>
+      <div class="P-genre-info">
+        <p class="P-item-info"><b style="font-size: 18px" class="P_title">Genre Name - </b> {{item.name}}</p>
+        <p class="P-item-info " style="font-size: 13px"><b style="font-size: 18px" class="P_title">Book Example
+          - </b> {{item.bookName}}</p>
+        <p class="P-item-info" style="font-size: 13px">
+          <b style="font-size: 18px"
+             class="P_title">Description</b> {{item.short_description | truncate: 340}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="G-flex G-align-center G-justify-end G-mt-2">
+  <mat-paginator
+    (page)="filterPages($event)"
+    [length]="genreInitialData?.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+
+<app-delete-modal *ngIf="isDeleteGenre" [genreId]="deleteId" (close)="closeDeleteGenre()"
+                  (update)="updateList()"></app-delete-modal>
+
+<app-manage-genre-modal *ngIf="isManageNewGenre" [data]="editResModel" (close)="closeManageGenre()"
+                        (update)="updateList()"></app-manage-genre-modal>

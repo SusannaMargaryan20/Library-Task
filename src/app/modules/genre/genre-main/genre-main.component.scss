@@ -1,0 +1,78 @@
+@import "../../../../assets/styles/variables";
+
+.P-add-btn {
+  color: white;
+  background: linear-gradient(green, yellow);
+}
+
+.P-genre-page {
+  width: 100%;
+  gap: 30px;
+  .P-genre-list {
+    grid-gap: 30px;
+    gap: 30px;
+    width: 100%;
+    .P-items-genre {
+      padding: 15px 5px;
+      background-color: white;
+      box-shadow: $shadow-green;
+      border-radius: 10px;
+      width: calc(100% / 3 - 30px);
+      max-height: 680px;
+      min-width: 300px;
+      overflow: hidden;
+      .P-show-more {
+        position: relative;
+        margin-right: 10px;
+        mat-icon {
+          color: green;
+        }
+        .P-content-more {
+          z-index: 9;
+          width: 130px;
+          height: 80px;
+          box-shadow: $shadow;
+          background-color: white;
+          position: absolute;
+          right: 0;
+          top: 25px;
+          display: none;
+          p{
+            padding: 10px;
+            margin: 0;
+          }
+          &.show {
+            display: block;
+          }
+        }
+      }
+      .P-genre-info {
+        line-height: 40px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 320px;
+        padding-bottom: 10px;
+        border-radius: 7px;
+        .P-item-info {
+          font-size: 16px;
+          opacity: 0.8;
+          word-break: break-word;
+          margin: 0;
+
+        }
+        .P_title {
+          font-weight: bold;
+          background: -webkit-linear-gradient( green,yellow);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.mat-paginator {
+  background-color: $body-color;
+}

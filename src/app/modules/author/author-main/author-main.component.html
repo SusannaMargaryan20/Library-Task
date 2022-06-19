@@ -1,0 +1,82 @@
+<div class="G-flex G-align-center G-justify-end G-mt-2 G-mb-2">
+  <button class="G-btn P-add-btn" (click)="openAddNewAuthor()">Add new</button>
+</div>
+
+<div class="G-block">
+  <div class="G-table-wrap">
+    <div class="G-th">
+      <div class="G-tc G-short">
+        <h6>Author Image</h6>
+      </div>
+      <div class="G-tc">
+        <h6>Author Name</h6>
+      </div>
+      <div class="G-tc">
+        <h6>Born Date</h6>
+      </div>
+      <div class="G-tc">
+        <h6>Die Date</h6>
+      </div>
+      <div class="G-tc">
+        <h6>Book Name</h6>
+      </div>
+      <div class="G-tc">
+        <h6>Genre</h6>
+      </div>
+      <div class="G-tc G-short"></div>
+    </div>
+
+    <div class="G-tb">
+      <ng-container *ngIf="data?.length">
+        <a class="G-tr G-cursor" *ngFor="let item of shownData">
+          <div class="G-tc G-short">
+            <div class="G-circle-image" [bgImage]="item.image"></div>
+          </div>
+          <div class="G-tc">
+            <p>{{ item.firstName + ' ' + item.lastName}}</p>
+          </div>
+          <div class="G-tc">
+            <p>{{ item?.bornDate ? (item.bornDate | date: 'MMM dd, y') : ' - ' }}</p>
+          </div>
+          <div class="G-tc">
+            <p>{{item?.dieDate ? (item.dieDate | date: 'MMM dd, y') : ' - ' }}</p>
+          </div>
+          <div class="G-tc">
+            <p>{{item?.bookName ? item.bookName : ' - '}}</p>
+          </div>
+          <div class="G-tc">
+            <p>{{item?.genre ? item.genre : ' - '}}</p>
+          </div>
+          <div class="G-short G-tc P-show-more">
+            <mat-icon (click)="showMoreFunctionality(item)">more_horiz</mat-icon>
+            <div class="P-content-more" [class.show]="isShowMore && showMoreId === item.id">
+              <p class="G-cursor G-ml-1" (click)="openEditModal(item)">Edit</p>
+              <p class="G-cursor G-ml-1" (click)="openDeleteAuthorModal(item.id)">Delete</p>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+      <div *ngIf="!data?.length" class="G-table-empty">
+        <h5>List is empty</h5>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="G-flex G-align-center G-justify-end G-mt-2">
+  <mat-paginator
+    (page)="filterPages($event)"
+    [length]="authorInitialData?.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<app-manage-author-modal *ngIf="isManageAuthor" [data]="editResModel" (close)="closeManageAuthorModal()"
+                         (update)="updateList()"></app-manage-author-modal>
+
+<app-delete-modal *ngIf="isDeleteAuthor" [authorId]="deleteId" (close)="closeDeleteAuthor()"
+                  (update)="updateList()"></app-delete-modal>

@@ -1,0 +1,32 @@
+@import "../../../../assets/styles/variables";
+
+.P-add-btn {
+  color: white;
+  background: linear-gradient(green, yellow);
+}
+.P-show-more {
+  position: relative;
+  .P-content-more {
+    z-index: 9;
+    width: 130px;
+    height: 80px;
+    box-shadow: $shadow;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    display: none;
+    p{
+      padding: 10px;
+      margin: 0;
+    }
+    &.show {
+      display: block;
+    }
+  }
+}
+
+
+.mat-paginator {
+  background-color: $body-color;
+}

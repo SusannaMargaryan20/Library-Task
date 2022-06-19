@@ -1,0 +1,73 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal">
+    <h1 class="G-modal-title">{{bookId ? 'Edit ' : 'Create '}}book</h1>
+    <form class="P-form" [formGroup]="manageBookReqModel"
+          (ngSubmit)="handleSave()">
+
+      <div class="G-flex G-align-center G-justify-between">
+        <div class="P-left-block G-cursor"
+             [bgImage]="manageBookReqModel.get('imageLink').value? manageBookReqModel.get('imageLink').value  : ''">
+          <label for="image" class="P-image">
+            <input type="file" id="image" accept=".jpg, .jpeg, .png" #fileUpload
+                   (change)="changePath(fileUpload.files)">
+          </label>
+        </div>
+
+        <div class="G-flex G-flex-column P-right-block">
+
+          <div class="P-input-group">
+            <label>Name</label>
+            <input type="text"
+                   formControlName="name"
+                   placeholder="Enter book name">
+          </div>
+
+          <div class="P-input-group">
+            <label>Genre List</label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                formControlName="genre"
+                [disabled]="!genreList.length"
+                placeholder="Select genre"
+                (selectionChange)="checkSelectGenre($event)">
+                <mat-option *ngFor="let type of genreList" [value]="type.name">
+                  {{type.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="P-input-group">
+            <label>Author List</label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                formControlName="author"
+                [disabled]="!authorList.length"
+                placeholder="Select author"
+                (selectionChange)="checkSelectAuthor($event)">
+                <mat-option *ngFor="let type of authorList" [value]="type.firstName + ' ' + type.lastName">
+                  {{type.firstName + ' ' + type.lastName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="P-input-group">
+            <label>Link for more information</label>
+            <input type="text"
+                   formControlName="link"
+                   placeholder="Enter link about book">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="P-actions-book">
+        <button class="G-btn P-cancel" (click)="close.emit()">Cancel</button>
+        <button class="G-btn P-save" type="submit">Save</button>
+      </div>
+
+    </form>
+
+  </div>
+</app-modal>

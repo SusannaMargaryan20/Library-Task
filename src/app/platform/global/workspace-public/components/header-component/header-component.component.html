@@ -1,0 +1,41 @@
+<div class="P-bg-color"  [ngClass]="isShowMenu? 'showBack' : ''" (click)="isShowMenu= !isShowMenu"></div>
+<header class="G-flex G-align-center" >
+
+  <div class="P-header-content G-flex G-align-center G-flex-wrap">
+
+    <div class="G-flex G-align-center G-justify-between">
+      <div class="G-flex G-align-center G-justify-between G-cursor" routerLink="./genre">
+        <div class="P-logo"></div>
+        <h1 class="P-title">Books</h1>
+      </div>
+
+      <nav class="G-flex G-align-center">
+        <a routerLink="./genre" routerLinkActive="P-active">Genre</a>
+        <a routerLink="./author" routerLinkActive="P-active">Author</a>
+        <a routerLink="./books" routerLinkActive="P-active">Books</a>
+      </nav>
+
+      <div class="P-tablet">
+        <button mat-icon-button (click)="isShowMenu = !isShowMenu">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <div class="P-menu-list" [ngClass]="isShowMenu? 'active' : ''">
+          <div class="G-flex G-align-center G-flex-column">
+            <a routerLink="./genre" routerLinkActive="P-active" (click)="isShowMenu = !isShowMenu">Genre</a>
+            <a routerLink="./author" routerLinkActive="P-active" (click)="isShowMenu = !isShowMenu">Author</a>
+            <a routerLink="./books" routerLinkActive="P-active" (click)="isShowMenu = !isShowMenu">Books</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<div style="height: 110px;" *ngIf="!isShowMenu"></div>
+
+

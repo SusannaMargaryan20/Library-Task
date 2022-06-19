@@ -1,0 +1,91 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal">
+    <h1 class="G-modal-title">{{authorId ? 'Edit ' : 'Create '}} author</h1>
+    <form class="P-form" [formGroup]="manageAuthorModel"
+          (ngSubmit)="handleSave()">
+
+      <div class="G-flex G-align-center G-justify-between">
+        <div class="P-left-block G-cursor"
+             [bgImage]="manageAuthorModel.get('image').value? manageAuthorModel.get('image').value  : ''">
+          <label for="image" class="P-image">
+            <input type="file" id="image" accept=".jpg, .jpeg, .png" #fileUpload
+                   (change)="changePath(fileUpload.files)">
+          </label>
+        </div>
+
+        <div class="G-flex G-flex-column P-right-block">
+
+          <div class="P-input-group">
+            <label>First Name</label>
+            <input type="text"
+                   formControlName="firstName"
+                   placeholder="Enter first name">
+          </div>
+
+          <div class="P-input-group">
+            <label>Last Name</label>
+            <input type="text"
+                   formControlName="lastName"
+                   placeholder="Enter last name">
+          </div>
+
+          <div class="P-calendar">
+            <label>Born Date</label>
+            <mat-form-field appearance="fill">
+              <input matInput
+                     [matDatepicker]="picker1"
+                     formControlName="bornDate"
+                     placeholder="Enter date of birth">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="P-calendar">
+            <label>Die Date</label>
+            <mat-form-field appearance="fill">
+              <input matInput
+                     name="die"
+                     [matDatepicker]="picker2"
+                     formControlName="dieDate"
+                     placeholder="Enter date of die">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="G-flex G-align-center G-justify-between P-bottom-block">
+          <div class="P-input-group G-flex G-flex-column">
+            <label>Genre List</label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                formControlName="genre"
+                [disabled]="!genreList.length"
+                placeholder="Select genre"
+                (selectionChange)="checkSelectGenre($event)">
+                <mat-option *ngFor="let type of genreList" [value]="type.name">
+                  {{type.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="P-input-group G-flex G-flex-column">
+            <label>Book Name</label>
+            <input type="text"
+                   formControlName="bookName"
+                   placeholder="Enter book name">
+          </div>
+      </div>
+
+      <div class="P-actions-book">
+        <button class="G-btn P-cancel" (click)="close.emit()">Cancel</button>
+        <button class="G-btn P-save" type="submit">Save</button>
+      </div>
+
+    </form>
+
+  </div>
+</app-modal>
